@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Clean Workspace') {
       steps {
-        echo 'cleaning workspace'
+        echo 'cleaning workspace. Test.'
       }
     }
     stage('Git Clone') {
