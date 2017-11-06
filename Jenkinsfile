@@ -54,12 +54,12 @@ pipeline {
       steps {
         dir(path: 'Dataplatform/dataplatform-solution') {
           sh '''# Set version number
-mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
-mvn -T 4 compile package install -DskipTests'''
+/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
-                #/usr/share/apache-maven-3.5.0/bin/mvn test -fae
-                #/usr/share/apache-maven-3.5.0/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
+                #/usr/share/maven/bin/mvn test -fae
+                #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
         }
         
       }
@@ -68,12 +68,12 @@ mvn -T 4 compile package install -DskipTests'''
       steps {
         dir(path: 'rsconnect/rsconnect-solution') {
           sh '''# Set version number
-mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
-mvn -T 4 compile package install -DskipTests'''
+/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
-#/usr/share/apache-maven-3.5.0/bin/mvn test -fae
-#/usr/share/apache-maven-3.5.0/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
+#/usr/share/maven/bin/mvn test -fae
+#/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
         }
         
       }
@@ -84,12 +84,12 @@ mvn -T 4 compile package install -DskipTests'''
           steps {
             dir(path: 'rsdam/rsdam-solution') {
               sh '''# Set version number
-mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
               sh '''# compile project
-mvn -T 4 compile package install -DskipTests'''
+/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
               sh '''# Run Tests
-#/usr/share/apache-maven-3.5.0/bin/mvn test -fae
-#/usr/share/apache-maven-3.5.0/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
+#/usr/share/maven/bin/mvn test -fae
+#/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
             }
             
           }
