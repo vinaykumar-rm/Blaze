@@ -58,8 +58,8 @@ pipeline {
           sh '''# compile project
 /usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
-                #/usr/share/maven/bin/mvn test -fae
-                #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
+#/usr/share/maven/bin/mvn test -fae
+#/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
         }
         
       }
