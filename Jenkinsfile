@@ -11,7 +11,7 @@ pipeline {
         stage('Dataplatform') {
           steps {
             dir(path: 'Dataplatform') {
-              git(url: 'https://github.com/riversandtechnologies/dataplatform', branch: 'dev', credentialsId: '12b41655-3811-40bc-8a87-35ce9b56c3fb')
+              git(url: 'https://github.com/riversandtechnologies/dataplatform', branch: 'dev', credentialsId: '7b9188f3-00e8-4967-9dcd-520c678d79cc')
             }
             
           }
@@ -19,7 +19,7 @@ pipeline {
         stage('RSConnect') {
           steps {
             dir(path: 'rsconnect') {
-              git(url: 'https://github.com/riversandtechnologies/rsconnect.git', branch: 'dev', credentialsId: '12b41655-3811-40bc-8a87-35ce9b56c3fb')
+              git(url: 'https://github.com/riversandtechnologies/rsconnect.git', branch: 'dev', credentialsId: '7b9188f3-00e8-4967-9dcd-520c678d79cc')
             }
             
           }
@@ -27,7 +27,7 @@ pipeline {
         stage('RSDAM') {
           steps {
             dir(path: 'rsdam') {
-              git(url: 'https://github.com/riversandtechnologies/rsdam.git', branch: 'dev', credentialsId: '12b41655-3811-40bc-8a87-35ce9b56c3fb')
+              git(url: 'https://github.com/riversandtechnologies/rsdam.git', branch: 'dev', credentialsId: '7b9188f3-00e8-4967-9dcd-520c678d79cc')
             }
             
           }
@@ -35,7 +35,7 @@ pipeline {
         stage('UI') {
           steps {
             dir(path: 'ui') {
-              git(url: 'https://github.com/riversandtechnologies/ui-platform.git', branch: 'dev', credentialsId: '12b41655-3811-40bc-8a87-35ce9b56c3fb')
+              git(url: 'https://github.com/riversandtechnologies/ui-platform.git', branch: 'dev', credentialsId: '7b9188f3-00e8-4967-9dcd-520c678d79cc')
             }
             
           }
@@ -43,7 +43,7 @@ pipeline {
         stage('devops') {
           steps {
             dir(path: 'devops') {
-              git(url: 'https://github.com/riversandtechnologies/dataplatform-devops.git', branch: 'dev', credentialsId: '12b41655-3811-40bc-8a87-35ce9b56c3fb')
+              git(url: 'https://github.com/riversandtechnologies/dataplatform-devops.git', branch: 'dev', credentialsId: '7b9188f3-00e8-4967-9dcd-520c678d79cc')
             }
             
           }
