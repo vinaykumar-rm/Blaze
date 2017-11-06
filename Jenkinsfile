@@ -54,7 +54,7 @@ pipeline {
       steps {
         dir(path: 'Dataplatform/dataplatform-solution') {
           sh '''# Set version number
-/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+#/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
 /usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
@@ -68,7 +68,7 @@ pipeline {
       steps {
         dir(path: 'rsconnect/rsconnect-solution') {
           sh '''# Set version number
-/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+#/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
 /usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
@@ -84,7 +84,7 @@ pipeline {
           steps {
             dir(path: 'rsdam/rsdam-solution') {
               sh '''# Set version number
-/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+#/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
               sh '''# compile project
 /usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
               sh '''# Run Tests
