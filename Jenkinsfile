@@ -389,9 +389,10 @@ find . -type f -name \'*.sh\' -exec sed -i -e \'s/\\r$//\' {} \\;
     }
     stage('Deploy') {
       steps {
-        sh '''deploy_version=$(cat rdp_deploy_version.txt)
+        sh '''echo Deployed version $(cat rdp_deploy_version.txt)
+#deploy_version=$(cat rdp_deploy_version.txt)
 
-ssh -i $KEY_FOLDER_PATH$KEY_FILE_NAME $REMOTE_SERVER ./auto-deploy-dev1.sh $deploy_version'''
+#ssh -i $KEY_FOLDER_PATH$KEY_FILE_NAME $REMOTE_SERVER ./auto-deploy-dev1.sh $deploy_version'''
       }
     }
   }
