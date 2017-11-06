@@ -11,7 +11,7 @@ pipeline {
         stage('Dataplatform') {
           steps {
             dir(path: 'Dataplatform') {
-              git(url: 'https://github.com/riversandtechnologies/dataplatform', branch: 'dev', credentialsId: 'b5ef282b-30a9-4b58-95c2-c72fe65b0091')
+              git(credentialsId: 'b5ef282b-30a9-4b58-95c2-c72fe65b0091', branch: 'dev', url: 'https://github.com/riversandtechnologies/dataplatform')
             }
             
           }
