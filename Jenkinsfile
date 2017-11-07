@@ -4,6 +4,13 @@ pipeline {
     stage('Clean Workspace') {
       steps {
         echo 'cleaning workspace. Test.'
+        sh '''sudo rm -rf Dataplatform*
+sudo rm -rf devops*
+sudo rm -rf docker
+sudo rm -rf rsconnect
+sudo rm -rf rsdam
+sudo rm -rf ui
+sudo rm -rf rdp_deploy_version.txt'''
       }
     }
     stage('Git Clone') {
@@ -54,7 +61,7 @@ pipeline {
       steps {
         dir(path: 'Dataplatform/dataplatform-solution') {
           sh '''# Set version number
-#/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
 #/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
@@ -68,9 +75,9 @@ pipeline {
       steps {
         dir(path: 'rsconnect/rsconnect-solution') {
           sh '''# Set version number
-#/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
-#/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
+/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
 #/usr/share/maven/bin/mvn test -fae
 #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
@@ -84,9 +91,9 @@ pipeline {
           steps {
             dir(path: 'rsdam/rsdam-solution') {
               sh '''# Set version number
-#/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
+/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
               sh '''# compile project
-#/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
+/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
               sh '''# Run Tests
 #/usr/share/maven/bin/mvn test -fae
 #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
@@ -98,16 +105,16 @@ pipeline {
           steps {
             dir(path: 'ui') {
               sh '''# clean
-#bower cache clean'''
+bower cache clean'''
               sh '''# install
-#npm install
-#bower install
+npm install
+bower install
 
 
 #Below cmd not required
 #npm i -g gulp-cli'''
               sh '''# compile
-#npm run compile'''
+npm run compile'''
             }
             
           }
