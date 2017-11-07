@@ -10,7 +10,7 @@ whoami
 echo "----------------------"
 docker -v
 echo "----------------------"
-$(aws ecr get-login)
+sudo $(aws ecr get-login)
 '''
       }
     }
