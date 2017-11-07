@@ -4,14 +4,6 @@ pipeline {
     stage('Clean Workspace') {
       steps {
         echo 'cleaning workspace. Test.'
-        sh '''
-echo "----------------------"
-whoami
-echo "----------------------"
-docker -v
-echo "----------------------"
-sudo $(aws ecr get-login)
-'''
       }
     }
     stage('Git Clone') {
@@ -369,12 +361,7 @@ chmod +x build.sh
 SOURCE_DIR=$WORKSPACE/docker
 BUILD_NUMBER="1.1.$BUILD_NUMBER"
 
-echo "----------------------"
-whoami
-echo "----------------------"
-docker -v
-echo "----------------------"
-$(aws ecr get-login)
+sudo $(aws ecr get-login)
 
 
 ./build.sh $SOURCE_DIR $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER dev'''
