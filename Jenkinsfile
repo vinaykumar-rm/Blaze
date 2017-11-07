@@ -361,6 +361,13 @@ chmod +x build.sh
 SOURCE_DIR=$WORKSPACE/docker
 BUILD_NUMBER="1.1.$BUILD_NUMBER"
 
+echo "----------------------"
+whoami
+echo "----------------------"
+docker -v
+echo "----------------------"
+
+
 ./build.sh $SOURCE_DIR $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER dev'''
         }
         
