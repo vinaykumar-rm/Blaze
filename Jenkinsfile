@@ -4,6 +4,14 @@ pipeline {
     stage('Clean Workspace') {
       steps {
         echo 'cleaning workspace. Test.'
+        sh '''
+echo "----------------------"
+whoami
+echo "----------------------"
+docker -v
+echo "----------------------"
+$(aws ecr get-login)
+'''
       }
     }
     stage('Git Clone') {
