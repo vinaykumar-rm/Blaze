@@ -56,7 +56,7 @@ pipeline {
           sh '''# Set version number
 #/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
-/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
+#/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
 #/usr/share/maven/bin/mvn test -fae
 #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
@@ -70,7 +70,7 @@ pipeline {
           sh '''# Set version number
 #/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
           sh '''# compile project
-/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
+#/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
           sh '''# Run Tests
 #/usr/share/maven/bin/mvn test -fae
 #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
@@ -86,7 +86,7 @@ pipeline {
               sh '''# Set version number
 #/usr/share/maven/bin/mvn versions:set -DnewVersion=1.1.$BUILD_NUMBER'''
               sh '''# compile project
-/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
+#/usr/share/maven/bin/mvn -T 4 compile package install -DskipTests'''
               sh '''# Run Tests
 #/usr/share/maven/bin/mvn test -fae
 #/usr/share/maven/bin/mvn -T 6 cobertura:cobertura -Dcobertura.report.format=xml'''
@@ -100,11 +100,14 @@ pipeline {
               sh '''# clean
 #bower cache clean'''
               sh '''# install
-npm install
-bower install
+#npm install
+#bower install
+
+
+#Below cmd not required
 #npm i -g gulp-cli'''
               sh '''# compile
-npm run compile'''
+#npm run compile'''
             }
             
           }
