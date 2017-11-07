@@ -338,15 +338,15 @@ done
             dir(path: 'ui') {
               sh '''pwd
 
-cp -R node_modules/ build/unbundled/ui-platform/
+#cp -R node_modules/ build/unbundled/ui-platform/
 
-cd build/unbundled/
+#cd build/unbundled/
 
-tar -czf ui-platform-1.1.$BUILD_NUMBER.tar.gz ui-platform
+#tar -czf ui-platform-1.1.$BUILD_NUMBER.tar.gz ui-platform
 
 #rm -rf /var/lib/rs/docker/package/ui-platform*
 
-cp ui-platform-1.1.$BUILD_NUMBER.tar.gz $WORKSPACE/docker'''
+#cp ui-platform-1.1.$BUILD_NUMBER.tar.gz $WORKSPACE/docker'''
             }
             
           }
