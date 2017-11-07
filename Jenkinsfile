@@ -366,7 +366,7 @@ whoami
 echo "----------------------"
 docker -v
 echo "----------------------"
-eval $(aws ecr get-login | sed \'s|https://||\')
+eval $(aws ecr get-login)
 
 
 ./build.sh $SOURCE_DIR $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER dev'''
