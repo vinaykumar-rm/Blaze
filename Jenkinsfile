@@ -98,11 +98,11 @@ pipeline {
           steps {
             dir(path: 'ui') {
               sh '''# clean
-bower cache clean'''
+#bower cache clean'''
               sh '''# install
 npm install
 bower install
-npm i -g gulp-cli'''
+#npm i -g gulp-cli'''
               sh '''# compile
 npm run compile'''
             }
