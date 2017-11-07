@@ -364,7 +364,7 @@ BUILD_NUMBER="1.1.$BUILD_NUMBER"
 sudo $(aws ecr get-login)
 
 
-./build.sh $SOURCE_DIR $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER dev'''
+sudo ./build.sh $SOURCE_DIR $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER $BUILD_NUMBER dev'''
         }
         
         sh '''echo "Generating rdp deploy package"
