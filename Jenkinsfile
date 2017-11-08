@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Clean Workspace') {
+    stage('Workspace Cleanup') {
       steps {
         echo 'cleaning workspace. Test.'
         sh '''sudo rm -rf Dataplatform*
@@ -13,7 +13,7 @@ sudo rm -rf ui
 sudo rm -rf rdp_deploy_version.txt'''
       }
     }
-    stage('Git Clone') {
+    stage('Get Git Repositories') {
       parallel {
         stage('Dataplatform') {
           steps {
