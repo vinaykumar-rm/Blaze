@@ -47,7 +47,7 @@ sudo rm -rf rdp_deploy_version.txt'''
             
           }
         }
-        stage('devops') {
+        stage('Devops') {
           steps {
             dir(path: 'devops') {
               git(url: 'https://github.com/riversandtechnologies/dataplatform-devops.git', branch: 'dev', credentialsId: 'b5ef282b-30a9-4b58-95c2-c72fe65b0091')
@@ -57,7 +57,7 @@ sudo rm -rf rdp_deploy_version.txt'''
         }
       }
     }
-    stage('Build dataplatform') {
+    stage('Build Dataplatform') {
       steps {
         dir(path: 'Dataplatform/dataplatform-solution') {
           sh '''# Set version number
@@ -71,7 +71,7 @@ sudo rm -rf rdp_deploy_version.txt'''
         
       }
     }
-    stage('Build RSConnet') {
+    stage('Build RSConnect') {
       steps {
         dir(path: 'rsconnect/rsconnect-solution') {
           sh '''# Set version number
@@ -121,20 +121,14 @@ npm run compile'''
         }
       }
     }
-    stage('Cleanup Docker Folder') {
+    stage('Cnt Preparation') {
       steps {
         dir(path: 'docker') {
           sh '''#Cleanup and creating drop path
 
-rm -rf *'''
-        }
-        
-      }
-    }
-    stage('Create Directory structure') {
-      steps {
-        dir(path: 'docker') {
-          sh '''mkdir -p config/services
+rm -rf *
+
+mkdir -p config/services
 mkdir -p config/messages
 mkdir templates
 mkdir rsconnect
@@ -146,7 +140,7 @@ mkdir nginx'''
         
       }
     }
-    stage('Copy Files') {
+    stage('Cnt Copy Files') {
       parallel {
         stage('RDP') {
           steps {
@@ -360,7 +354,7 @@ done
         }
       }
     }
-    stage('Create Docker Containers') {
+    stage('Cnt Creation & Push') {
       steps {
         dir(path: 'devops/violet/Docker/Swarm/pre-built/') {
           sh '''find . -type f -name \'*.sh\' -exec sed -i -e \'s/\\r$//\' {} \\;
@@ -400,7 +394,7 @@ find . -type f -name \'*.sh\' -exec sed -i -e \'s/\\r$//\' {} \\;
 sudo ./build.sh $WORKSPACE/docker $packageversion${TAG_SUFFIX} ${BUILD_NUMBER}${TAG_SUFFIX} ${BUILD_NUMBER}${TAG_SUFFIX} ${BUILD_NUMBER}${TAG_SUFFIX} ${BUILD_NUMBER}${TAG_SUFFIX}'''
       }
     }
-    stage('Deploy') {
+    stage('Remote Deploy') {
       steps {
         sh '''echo Deployed version $(cat rdp_deploy_version.txt)
 deploy_version=$(cat rdp_deploy_version.txt)
