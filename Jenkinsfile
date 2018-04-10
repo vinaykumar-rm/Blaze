@@ -1,18 +1,19 @@
 pipeline {
   agent any
+  parameters  {
+    choice(name: 'choice',
+    choices: 'I1\nI2\n\I3\nI4',
+    description: 'please select an instance')
+    string(name: 'version',
+    description: 'Provide version number')
+  }
   stages {
     stage('MailTest') {
-      steps {
-        sh '''packageversion=$(date +%m%d%y.%H%M)
-
-echo $packageversion${TAG_SUFFIX} > rdp_deploy_version.txt
-
-BUILD_NUMBER=$(cat $KEY_FOLDER_PATH/versionNumber.txt)
-deploy_version=$(cat rdp_deploy_version.txt)
-
-echo $BUILD_NUMBER
-echo $deploy_version'''
-        mail(subject: 'Test-Mail', body: 'Version : $BUILD_NUMBER ; version1 : $deploy_version', to: 'vinay.kumar@riversand.com', cc: 'vinay.kumar@riversand.com')
+      steps{
+        echo 'User Choices'
+        echo "Instane Name  : ${params.choice}"
+        echo "Version Number  : ${params.version}"
+      }
       }
     }
   }
