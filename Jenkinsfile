@@ -2,7 +2,7 @@ pipeline {
   agent any
   parameters  {
     choice(name: 'choice',
-      choices: 'I1I4',
+      choices: 'I1\nI2\nI3\nI4',
     description: 'please select an instance')
 
     string(name: 'version',
