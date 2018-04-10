@@ -16,9 +16,4 @@ echo $deploy_version'''
       }
     }
   }
-  environment {
-    KEY_FOLDER_PATH = '/var/lib/jenkins/keys/'
-    KEY_FILE_NAME = 'riversand-east-1.pem'
-    REMOTE_SERVER = 'ubuntu@54.210.14.231'
-  }
 }
