@@ -2,8 +2,9 @@ pipeline {
   agent any
   parameters  {
     choice(name: 'choice',
-    choices: 'I1I4',
+      choices: 'I1I4',
     description: 'please select an instance')
+
     string(name: 'version',
     description: 'Provide version number')
   }
@@ -13,7 +14,6 @@ pipeline {
         echo 'User Choices'
         echo "Instane Name  : ${params.choice}"
         echo "Version Number  : ${params.version}"
-      }
       }
     }
   }
